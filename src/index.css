@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.gameborder{
+  border: 1px solid gray;
+  width:80%;
+  height:80%;
+  border-radius:12px;
+  box-shadow: 2px 3px 10px 2px black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.parent{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.dealer{
+  border: 1px solid #ffecb3;
+  width:70%;
+  height: 30%;
+  border-radius:12px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 1px 5px 0px #e65100;
+}
+.player{
+  border: 1px solid #c5cae9;
+  width:70%;
+  height: 30%;
+  border-radius:12px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 1px 5px 0px #283593;
+}
+.cards{
+  height: 50%;
+  width: 80%;
+  border-radius:12px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+}
+.cardborderdealer{
+  border: 1px solid #e65100;
+    height: 80%;
+    width: 15%;
+    border-radius:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardborderplayer{
+    border: 1px solid #1a237e;
+    height: 60%;
+    width: 15%;
+    border-radius:12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
