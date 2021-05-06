@@ -38,7 +38,7 @@ const Card = () =>{
             setStart(false)
             tempdealer.forEach((item,index)=>{
                 let number = item
-                if(Number.isInteger(parseInt(number[0]))===false){
+                if(!Number.isInteger(parseInt(number[0]))){
                     if(number[0]!=="A"){
                         setValue(value+=10);
                     }
@@ -58,7 +58,7 @@ const Card = () =>{
             })
             tempplayer.forEach((item,index)=>{
                 let number = item
-                if(Number.isInteger(parseInt(number[0]))===false){
+                if(!Number.isInteger(parseInt(number[0]))){
                     if(number[0]!=="A"){
                     setPlayervalue(playervalue+=10);
                         }
@@ -93,7 +93,7 @@ const Card = () =>{
                 value=0
                 tempdealer.forEach((item,index)=>{
                     let number = item
-                    if(Number.isInteger(parseInt(number[0]))===false){
+                    if(!Number.isInteger(parseInt(number[0]))){
                         if(number[0]!=="A"){
                             setValue(value+=10);
                         }
@@ -127,7 +127,7 @@ const Card = () =>{
         playervalue=0
         tempplayer.forEach((item,index)=>{
             let number = item
-            if(Number.isInteger(parseInt(number[0]))===false){
+            if(!Number.isInteger(parseInt(number[0]))){
                 if(number[0]!=="A"){
                 setPlayervalue(playervalue+=10);
                     }
