@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 
 const Card = () =>{
 
@@ -16,7 +16,7 @@ const Card = () =>{
     const [hit,setHit] = useState(false)
 
     const Random = () =>{
-        if(start===true){
+        if(start){
             let tempplayer = [...player]
             let tempdealer = [...dealer]
             for(let i=0 ; i<2 ; i++){
@@ -36,8 +36,8 @@ const Card = () =>{
             setDealer(tempdealer)
             setPlayer(tempplayer)
             setStart(false)
-            for(let i=0 ; i<tempdealer.length;i++){
-                let number = tempdealer[i]
+            tempdealer.forEach((item,index)=>{
+                let number = item
                 if(Number.isInteger(parseInt(number[0]))===false){
                     if(number[0]!=="A"){
                         setValue(value+=10);
@@ -55,9 +55,9 @@ const Card = () =>{
                 {
                     setValue(value+=parseInt(number[0]))
                 }
-            }
-            for(let i=0 ; i<tempplayer.length;i++){
-                let number = tempplayer[i]
+            })
+            tempplayer.forEach((item,index)=>{
+                let number = item
                 if(Number.isInteger(parseInt(number[0]))===false){
                     if(number[0]!=="A"){
                     setPlayervalue(playervalue+=10);
@@ -75,7 +75,7 @@ const Card = () =>{
                     {
                         setPlayervalue(playervalue+=parseInt(number[0]))
                     }
-                }
+                })
         }
     } 
 
@@ -91,8 +91,8 @@ const Card = () =>{
                 let combine = cardnumber+cardnames
                 tempdealer.push(combine)
                 value=0
-                for(let i=0 ; i<tempdealer.length;i++){
-                    let number = tempdealer[i]
+                tempdealer.forEach((item,index)=>{
+                    let number = item
                     if(Number.isInteger(parseInt(number[0]))===false){
                         if(number[0]!=="A"){
                             setValue(value+=10);
@@ -110,7 +110,7 @@ const Card = () =>{
                     {
                         setValue(value+=parseInt(number[0]))
                     }
-                }
+                })
             }
             setDealer(tempdealer)
     }
@@ -125,8 +125,8 @@ const Card = () =>{
         let combine = cardnumber+cardnames
         tempplayer.push(combine)
         playervalue=0
-        for(let i=0 ; i<tempplayer.length;i++){
-            let number = tempplayer[i]
+        tempplayer.forEach((item,index)=>{
+            let number = item
             if(Number.isInteger(parseInt(number[0]))===false){
                 if(number[0]!=="A"){
                 setPlayervalue(playervalue+=10);
@@ -144,7 +144,8 @@ const Card = () =>{
                 {
                     setPlayervalue(playervalue+=parseInt(number[0]))
                 }
-            }
+            })
+            console.log(playervalue)
             setPlayer(tempplayer)
         }        
 }
@@ -191,7 +192,7 @@ const Reset = () =>{
                     {result}
                 </ModalBody>
                 <ModalFooter>
-                <Button color="secondary" onClick={Reset}>Cancel</Button>
+                    <Button color="secondary" onClick={Reset}>Restart</Button>
                 </ModalFooter>
             </Modal>
             {start &&<Button onClick={Random}>StartGame</Button>}
@@ -199,20 +200,20 @@ const Reset = () =>{
                 <div className="dealer">
                     <h3>Dealer({value}){value===21&&dealer.length===2?"BlackJack":""}</h3>
                     <div className="cards">
-                        {dealer.map((item)=>
-                            <div className="cardborderdealer">{item}</div>
+                        {dealer.map((item,index)=>
+                            <div key={index} className="cardborderdealer">{item}</div>
                         )}
                     </div>
                 </div>
                 <div className="player">
                     <h3>Player({playervalue}){playervalue===21&&player.length===2?"BlackJack":""}</h3>
                     <div className="cards">
-                        {player.map((item)=>
-                            <div className="cardborderplayer">{item}</div>
+                        {player.map((item,index)=>
+                            <div key={index} className="cardborderplayer">{item}</div>
                         )}
                     </div>
                 </div>
-                <div style={{display:"flex",flexDirection:"row" ,width:"50%" ,justifyContent:"space-evenly"}}>
+                <div className="button">
                 <Button onClick={Player} disabled={hit}>Hit</Button>
                 <Button onClick={Dealer} >Strike</Button>
                 </div>
