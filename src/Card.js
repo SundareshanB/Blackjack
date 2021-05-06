@@ -145,7 +145,6 @@ const Card = () =>{
                     setPlayervalue(playervalue+=parseInt(number[0]))
                 }
             })
-            console.log(playervalue)
             setPlayer(tempplayer)
         }        
 }
